@@ -52,7 +52,7 @@ Ensinar o básico sobre a integração de sistemas web2 com web3
 - ✅ [aula 3: Lendo dados de transações](./mod5/aulas/aula3/roteiro.md)
 - ✅ [aula 4: Lendo dados de blocos](./mod5/aulas/aula4/roteiro.md)
 - ✅ [aula 5: Como criar transações simples (envio de Ether)](./mod5/aulas/aula5/roteiro.md)
-- 🆗 [aula 6: O que são ABIs](./mod5/aulas/aula6/roteiro.md)
+- ✅ [aula 6: O que são ABIs](./mod5/aulas/aula6/roteiro.md)
 - 🆗 [aula 7: Como escrever dados no contrato (envio de ERC20)](./mod5/aulas/aula7/roteiro.md)
 - 🆗 [aula 8: Como ler dados complexos do contrato (Struct, Enum e Array)](./mod5/aulas/aula8/roteiro.md)
 - 🆗 [aula 9: Como criar transações complexas (envio de Struct, Enum e Array)](./mod5/aulas/aula9/roteiro.md)
