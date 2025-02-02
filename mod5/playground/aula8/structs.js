@@ -1,13 +1,14 @@
-import contract from "./config";
+import contract from "./config.js";
 
 async function addPeople(name, age, gender) {
-  contract.write.pushPeople([
+  const txHash = await contract.write.pushPeople([
     {
       name: name,
       age: age,
       gender: gender,
     },
   ]);
+  console.log("Transação enviada com hash:", txHash);
 }
 
 const male = 0;
