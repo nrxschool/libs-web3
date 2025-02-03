@@ -53,7 +53,9 @@ contract Complex {
     }
 
     function getPerson() external view returns (People memory) {
-        require(peoples.length > 0, "No people available");
+        if (peoples.length == 0) {
+            revert("No people available");
+        }
         return peoples[0];
     }
 

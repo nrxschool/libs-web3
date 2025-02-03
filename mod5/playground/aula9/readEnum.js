@@ -1,38 +1,29 @@
-import { createPublicClient, createWalletClient, http } from "viem";
-import { privateKeyToAccount } from "viem/accounts";
-import { foundry } from "viem/chains";
+import { createPublicClient, getContract, http } from "viem";
 import abi from "../aula8/abi.js";
 
 // Configuração do provider
-const transport = http("http://127.0.0.1:8545");
-
 const publicClient = createPublicClient({
-  chain: foundry,
-  transport,
+  chain: anvil,
+  transport: http(),
 });
 
-// Endereço do contrato
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CONTRACT_ADDRESS = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+const contract = getContract({
+  address: CONTRACT_ADDRESS,
+  abi: abi,
+  client: publicClient,
+});
 
 // Nova função para chamar pushGen
 async function readGenderEnum() {
-  const genderValue = await publicClient.readContract({
-    address: contractAddress,
-    abi,
-    functionName: "getGender",
-  });
+  const genderValue = await contract.read.getGender();
   const gender = genderValue === 0n ? "Male" : "Female";
   console.log("Gênero:", gender);
 }
 
 async function getPeopleByGender(gender) {
   const gen = gender === "Male" ? 0 : 1;
-  const peopleNames = await publicClient.readContract({
-    address: contractAddress,
-    abi,
-    functionName: "pushGen",
-    args: [gen],
-  });
+  const peopleNames = await contract.read.pushGen();
   console.log("Nomes de pessoas com gênero " + gender + ":", peopleNames);
 }
 
