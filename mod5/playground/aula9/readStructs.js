@@ -1,25 +1,23 @@
-import { createPublicClient, createWalletClient, http } from "viem";
-import { privateKeyToAccount } from "viem/accounts";
-import { foundry } from "viem/chains";
+import { createPublicClient, getContract, http } from "viem";
+import { anvil } from "viem/chains";
 import abi from "../aula8/abi.js";
 
 // Configuração do provider
-const transport = http("http://127.0.0.1:8545");
-
 const publicClient = createPublicClient({
-  chain: foundry,
-  transport,
+  chain: anvil,
+  transport: http(),
 });
 
-// Endereço do contrato
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const contract = getContract({
+  address: CONTRACT_ADDRESS,
+  abi: abi,
+  client: publicClient,
+});
+
 
 async function getPeople() {
-  const person = await publicClient.readContract({
-    address: contractAddress,
-    abi,
-    functionName: "getPerson",
-  });
+  const person = await contract.read.getPerson();
 
   console.log("last people");
   console.table({
@@ -30,24 +28,18 @@ async function getPeople() {
 }
 
 async function getAllPeople() {
-  let allPeople = await publicClient.readContract({
-    address: contractAddress,
-    abi,
-    functionName: "getAllPeople",
-  });
+  let allPeople = await contract.read.getAllPeople();
 
-  allPeople = allPeople.map(people => {
+  allPeople = allPeople.map((people) => {
     return {
       name: people.name,
       age: people.age,
-      gender: people.gender === 1 ? 'Woman' : 'Man'
-    }
-  })
+      gender: people.gender === 1 ? "Woman" : "Man",
+    };
+  });
   console.log("All people");
   console.table(allPeople);
 }
-
-
 
 getPeople();
 getAllPeople();

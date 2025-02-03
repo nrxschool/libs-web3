@@ -17,7 +17,7 @@ Olá! Bem-vindo à nossa décima segunda aula sobre Viem v2 Nesta aula, vamos ex
 
 Para que possamos enviar dados complexos, precisamos garantir que o contrato inteligente em Solidity está preparado para receber esses tipos de dados. Vamos ver um exemplo de contrato que aceita Structs, Enums e Arrays em uma única função.
 
-- [Contrato em Solidiry](../../playground/aula8/complex.sol)
+- [Contrato em Solidity](../../playground/aula8/complex.sol)
 
 ## 2. Criando e enviando transações com Structs
 
