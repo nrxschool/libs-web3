@@ -1,4 +1,5 @@
 import { createPublicClient, getContract, http } from "viem";
+import { anvil } from "viem/chains";
 import abi from "../aula8/abi.js";
 
 // Configuração do provider
@@ -20,7 +21,14 @@ async function readAllNames() {
 }
 
 async function readAllPerson() {
-  const people = await contract.read.getAllPeople();
+  let people = await contract.read.getAllPeople();
+  people = people.map((p) => {
+    return {
+      name: p.name,
+      age: p.age,
+      gender: p.gender === 0 ? "Homem" : "Mulher",
+    };
+  });
   console.table(people);
 }
 

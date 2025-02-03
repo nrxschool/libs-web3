@@ -1,4 +1,5 @@
 import { createPublicClient, getContract, http } from "viem";
+import { anvil } from "viem/chains";
 import abi from "../aula8/abi.js";
 
 // Configuração do provider
@@ -17,13 +18,13 @@ const contract = getContract({
 // Nova função para chamar pushGen
 async function readGenderEnum() {
   const genderValue = await contract.read.getGender();
-  const gender = genderValue === 0n ? "Male" : "Female";
+  const gender = genderValue === 0n ? "Female" : "Male";
   console.log("Gênero:", gender);
 }
 
 async function getPeopleByGender(gender) {
   const gen = gender === "Male" ? 0 : 1;
-  const peopleNames = await contract.read.pushGen();
+  const peopleNames = await contract.read.pushGen([gen]);
   console.log("Nomes de pessoas com gênero " + gender + ":", peopleNames);
 }
 

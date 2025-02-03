@@ -75,4 +75,4 @@ Hoje aprendemos como ler dados complexos do contrato utilizando structs, enums e
 
 ## Próxima Aula
 
-Na próxima aula, vamos aprender sobre como criar transações complexas com arrays, structs e enums em contratos. Nos vemos lá!
+
