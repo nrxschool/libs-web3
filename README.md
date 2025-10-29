@@ -56,3 +56,12 @@ Ensinar o básico sobre a integração de sistemas web2 com web3
 - ✅ [aula 7: Como escrever dados no contrato (envio de ERC20)](./mod5/aulas/aula7/roteiro.md)
 - ✅ [aula 8: Como ler dados complexos do contrato (Struct, Enum e Array)](./mod5/aulas/aula8/roteiro.md)
 - ✅ [aula 9: Como criar transações complexas (envio de Struct, Enum e Array)](./mod5/aulas/aula9/roteiro.md)
+
+---
+
+# 💡 Este repositório é parte dos cursos, workshops ou bootcamps da NearX School.
+
+Quer acompanhar a aula completa em vídeo e entrar na comunidade? 
+👉 https://nearx.com.br/register | Comunidade: https://discord.com/invite/wavXA98gd8
+
+_NearX School: Aprenda o futuro, hoje._
